@@ -58,40 +58,52 @@
       <div class="field" aria-hidden="true">
         <svg viewBox="0 0 640 640" role="img">
           <defs>
-            <clipPath id="eye-reflection-clip">
-              <path d="M92 378C166 178 361 109 548 266C439 494 232 530 92 378Z" />
+            <clipPath id="glass-eye-clip">
+              <path d="M62 346C117 243 215 182 327 179C431 176 526 228 581 316C524 411 426 461 313 457C203 453 111 414 62 346Z" />
             </clipPath>
+            <clipPath id="iris-reflection-clip">
+              <ellipse cx="322" cy="321" rx="83" ry="78"/>
+            </clipPath>
+            <linearGradient id="glass-wash" x1=".18" y1=".08" x2=".82" y2=".92">
+              <stop offset="0" stop-color="#fff" stop-opacity=".58"/>
+              <stop offset=".46" stop-color="#dfe8df" stop-opacity=".08"/>
+              <stop offset="1" stop-color="#789083" stop-opacity=".28"/>
+            </linearGradient>
+            <radialGradient id="forest-fade">
+              <stop offset="64%" stop-color="white"/>
+              <stop offset="100%" stop-color="black"/>
+            </radialGradient>
+            <mask id="forest-vignette">
+              <rect width="640" height="640" fill="url(#forest-fade)"/>
+            </mask>
           </defs>
-          <g class="forest-intro">
-            <path class="forest-ground" d="M52 535C145 498 230 530 320 500C417 468 511 501 588 470" />
-            <g class="redwood redwood-1"><path d="M121 548L147 74L178 548"/><path d="M134 322L96 391M159 278L201 352M139 218L105 277"/></g>
-            <g class="redwood redwood-2"><path d="M254 541L274 136L300 541"/><path d="M266 332L230 388M288 248L328 314"/></g>
-            <g class="redwood redwood-3"><path d="M392 532L410 105L440 532"/><path d="M403 308L361 373M426 239L467 304"/></g>
-            <g class="redwood redwood-4"><path d="M505 510L522 184L547 510"/><path d="M515 340L479 393M538 279L568 330"/></g>
-            <path class="forest-path" d="M297 570C299 504 354 469 337 411C325 370 350 335 377 310" />
+          <g class="forest-journey">
+            <image href="/assets/redwood-grove.webp" x="30" y="90" width="580" height="430" preserveAspectRatio="xMidYMid slice" mask="url(#forest-vignette)" />
           </g>
-          <g class="eye-system">
-            <circle class="orbit orbit-a" cx="320" cy="320" r="218" />
-            <circle class="orbit orbit-b" cx="320" cy="320" r="132" />
-            <line x1="320" y1="52" x2="320" y2="588" />
-            <line x1="52" y1="320" x2="588" y2="320" />
-            <g class="forest-reflection" clip-path="url(#eye-reflection-clip)">
-              <path class="reflection-ground" d="M70 440C181 388 275 428 364 389C449 352 520 380 583 345" />
-              <g class="reflection-tree tree-a"><path d="M151 476L169 188L192 472"/><path d="M162 320L134 357M181 278L207 317"/></g>
-              <g class="reflection-tree tree-b"><path d="M245 449L263 153L288 441"/><path d="M255 298L226 338M278 244L309 286"/></g>
-              <g class="reflection-tree tree-c"><path d="M373 420L390 137L416 407"/><path d="M382 282L350 324M407 229L437 269"/></g>
-              <g class="reflection-tree tree-d"><path d="M469 376L482 183L504 361"/><path d="M476 279L454 307M496 244L518 271"/></g>
-              <path class="reflection-path" d="M292 490C304 432 359 415 346 371C336 337 354 309 386 285" />
+          <g class="eye-form">
+            <path class="eye-shadow" d="M65 351C126 431 214 471 316 474C431 477 531 424 589 323C523 414 426 458 315 454C207 451 116 412 65 351Z"/>
+            <path class="eye-rim" d="M62 346C117 243 215 182 327 179C431 176 526 228 581 316C524 411 426 461 313 457C203 453 111 414 62 346Z" />
+            <path class="eye-lid" d="M68 342C151 216 267 175 371 190C456 202 528 250 579 315" />
+          </g>
+          <g class="iris-reflection">
+            <g clip-path="url(#iris-reflection-clip)">
+              <image href="/assets/redwood-grove.webp" x="239" y="243" width="166" height="156" preserveAspectRatio="xMidYMid slice" />
+              <ellipse class="iris-wash" cx="322" cy="321" rx="83" ry="78"/>
             </g>
-            <path class="trajectory" d="M92 378C166 178 361 109 548 266C439 494 232 530 92 378Z" />
-            <circle class="point point-a" cx="171" cy="202" r="8" />
-            <circle class="point point-b" cx="472" cy="426" r="8" />
-            <circle class="core" cx="320" cy="320" r="22" />
+            <ellipse class="iris-ring" cx="322" cy="321" rx="83" ry="78"/>
+            <ellipse class="pupil-ring" cx="322" cy="321" rx="34" ry="31"/>
+          </g>
+          <g class="full-eye-reflection">
+            <g clip-path="url(#glass-eye-clip)">
+              <image class="eye-forest" href="/assets/redwood-grove.webp" x="59" y="156" width="526" height="350" preserveAspectRatio="xMidYMid slice" />
+              <path class="glass-wash" d="M62 346C117 243 215 182 327 179C431 176 526 228 581 316C524 411 426 461 313 457C203 453 111 414 62 346Z"/>
+            </g>
+          </g>
+          <g class="eye-sheen">
+            <path class="eye-highlight" d="M151 288C203 227 278 208 345 215" />
+            <path class="eye-glint" d="M183 269C205 245 230 232 257 224" />
           </g>
         </svg>
-        <div class="field-label label-a">observe</div>
-        <div class="field-label label-b">test</div>
-        <div class="field-label label-c">share</div>
       </div>
     </section>
 
@@ -111,13 +123,8 @@
             <h3>Frame the real question</h3>
             <p>Begin with context. Separate the visible symptom from the deeper question, then define what a useful answer would make possible.</p>
           </div>
-          <figure class="approach-illustration illustration-frame" aria-label="A viewfinder frames a distant trail through the hills">
-            <svg viewBox="0 0 260 170" role="img">
-              <path class="land" d="M13 128C47 91 71 115 99 86C130 53 156 99 183 72C209 45 232 74 249 57"/>
-              <path class="trail" d="M124 153C123 126 151 116 142 97C134 81 148 69 166 62"/>
-              <path class="frame-line" d="M51 46V24H73M187 24H209V46M209 125V147H187M73 147H51V125"/>
-              <circle class="sun" cx="205" cy="48" r="10"/>
-            </svg>
+          <figure class="approach-illustration illustration-frame" aria-label="Topographic contours and survey gridlines frame a precise point of inquiry">
+            <img src="/assets/approach-topography.webp" alt="" width="1100" height="697">
           </figure>
         </li>
         <li class="reveal">
@@ -126,30 +133,21 @@
             <h3>Make evidence tangible</h3>
             <p>Use focused research and small experiments to turn assumptions into things we can inspect, challenge, and improve.</p>
           </div>
-          <figure class="approach-illustration illustration-evidence" aria-label="Tree rings, a leaf, and measurement marks make evidence visible">
-            <svg viewBox="0 0 260 170" role="img">
-              <ellipse class="tree-ring" cx="128" cy="88" rx="76" ry="57"/>
-              <ellipse class="tree-ring" cx="128" cy="88" rx="53" ry="39"/>
-              <ellipse class="tree-ring" cx="128" cy="88" rx="29" ry="21"/>
-              <path class="sample-leaf" d="M137 92C174 53 204 58 216 65C203 96 178 112 137 92ZM141 90L203 68"/>
-              <path class="measure" d="M40 143H220M55 136V150M88 138V148M121 136V150M154 138V148M187 136V150M220 138V148"/>
-            </svg>
+          <figure class="approach-illustration illustration-evidence" aria-label="A single arrow lands in the bullseye of a target on a three-legged stand">
+            <img src="/assets/approach-target.webp" alt="" width="1100" height="697">
           </figure>
         </li>
-        <li class="reveal">
+        <li class="reveal" id="approach-trail">
           <span class="item-number">03</span>
           <div>
             <h3>Leave a clear trail</h3>
             <p>Share the reasoning, limits, and practical implications so the work can travel beyond the room where it began.</p>
           </div>
-          <figure class="approach-illustration illustration-trail" aria-label="A winding trail leads through a grove of redwoods">
-            <svg viewBox="0 0 260 170" role="img">
-              <path class="redwood-line" d="M39 151L55 20L71 151M50 78L28 104M63 65L83 92"/>
-              <path class="redwood-line" d="M95 145L108 35L122 145M103 82L87 103M116 68L134 91"/>
-              <path class="redwood-line" d="M180 140L192 24L208 140M187 72L168 96M201 61L222 88"/>
-              <path class="redwood-line distant" d="M140 130L149 61L159 130M221 132L229 57L239 132"/>
-              <path class="trail" d="M114 164C114 139 153 133 145 114C138 96 161 88 176 79"/>
-              <path class="trail-dots" d="M119 151L132 139L143 127L147 113L157 99L170 86"/>
+          <figure class="approach-illustration illustration-trail" aria-label="A winding trail leads through a grove of orange-trunked redwoods">
+            <img src="/assets/redwood-grove.webp" alt="" width="1100" height="733">
+            <svg class="trail-emphasis" viewBox="0 0 500 245" aria-hidden="true">
+              <path class="trail-bank" d="M210 245C220 224 255 216 247 197C240 179 270 163 264 146C260 134 279 119 290 105L302 108C292 126 281 136 286 150C294 170 266 183 276 199C287 219 262 230 290 245Z"/>
+              <path class="trail-center" d="M251 241C247 220 270 213 261 195C252 177 281 162 274 146C269 133 287 118 296 107"/>
             </svg>
           </figure>
         </li>
@@ -160,9 +158,12 @@
       <div class="inquiry-copy reveal">
         <p class="section-number">02 / Inquiry</p>
         <h2 id="inquiry-title">A place for work<br><span class="signal-word">in</span> formation.</h2>
-        <p>Our first field notes and project pages are being prepared. They will document the questions, methods, and unfinished edges alongside the conclusions.</p>
+        <p>Inquiry moves in a loop: gather <strong>data</strong>, turn it into <strong>insight</strong>, take <strong>action</strong>, then observe what changed. These questions keep the loop open to better evidence, useful automation, and human judgment.</p>
+        <ol class="inquiry-loop" aria-label="The inquiry loop">
+          <li>Data</li><li>Insight</li><li>Action</li>
+        </ol>
       </div>
-      <div class="inquiry-deck reveal" aria-label="Deck of 113 inquiry field notes">
+      <div class="inquiry-deck reveal" aria-label="Deck of inquiry field notes">
         <article class="notebook" data-card aria-live="polite">
           <div class="notebook-meta"><span>Field note</span><span data-note-number>№ 001</span></div>
           <blockquote data-note-prompt>“What becomes possible when we make the question more precise?”</blockquote>
@@ -171,7 +172,6 @@
         <article class="notebook" data-card aria-hidden="true"><div class="notebook-meta"><span>Field note</span><span data-note-number></span></div><blockquote data-note-prompt></blockquote><div class="notebook-footer"><span data-note-label></span><span class="pulse" aria-hidden="true"></span></div></article>
         <article class="notebook" data-card aria-hidden="true"><div class="notebook-meta"><span>Field note</span><span data-note-number></span></div><blockquote data-note-prompt></blockquote><div class="notebook-footer"><span data-note-label></span><span class="pulse" aria-hidden="true"></span></div></article>
         <div class="deck-toolbar">
-          <output class="deck-counter" aria-live="polite">001 / 113</output>
           <div class="deck-actions">
             <button type="button" data-deck-action="previous" aria-label="Previous field note" data-tooltip="Previous">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5L8 12L15 19"/></svg>

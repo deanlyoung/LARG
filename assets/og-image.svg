@@ -1,33 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <defs><clipPath id="og-eye"><path d="M92 378C166 178 361 109 548 266C439 494 232 530 92 378Z"/></clipPath></defs>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630">
+  <defs>
+    <clipPath id="eye"><path d="M62 346C117 243 215 182 327 179C431 176 526 228 581 316C524 411 426 461 313 457C203 453 111 414 62 346Z"/></clipPath>
+    <linearGradient id="glass" x1=".18" y1=".08" x2=".82" y2=".92">
+      <stop offset="0" stop-color="#fff" stop-opacity=".58"/>
+      <stop offset=".5" stop-color="#dfe8df" stop-opacity=".04"/>
+      <stop offset="1" stop-color="#789083" stop-opacity=".25"/>
+    </linearGradient>
+  </defs>
   <rect width="1200" height="630" fill="#f2f0e8"/>
   <text x="54" y="172" fill="#17231f" font-family="Georgia,serif" font-size="88" letter-spacing="-4">Questions worth</text>
   <text x="54" y="258" fill="#df5b35" font-family="Georgia,serif" font-size="88" font-style="italic" letter-spacing="-3">staying with.</text>
   <text x="56" y="342" fill="#17231f" font-family="Arial,sans-serif" font-size="25">Lowell Applied Research Group is a home for careful</text>
   <text x="56" y="381" fill="#17231f" font-family="Arial,sans-serif" font-size="25">inquiry, useful experiments, and clear communication.</text>
-  <g transform="translate(664 64) scale(.76)">
-    <circle cx="320" cy="320" r="218" fill="none" stroke="#17231f" stroke-opacity=".16" stroke-width="2" stroke-dasharray="3 9"/>
-    <circle cx="320" cy="320" r="132" fill="none" stroke="#17231f" stroke-width="2" stroke-dasharray="1 7"/>
-    <line x1="320" y1="52" x2="320" y2="588" stroke="#17231f" stroke-opacity=".2" stroke-width="2"/>
-    <line x1="52" y1="320" x2="588" y2="320" stroke="#17231f" stroke-opacity=".2" stroke-width="2"/>
-    <g clip-path="url(#og-eye)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M70 440C181 388 275 428 364 389C449 352 520 380 583 345" stroke="#b8c6b8" stroke-width="6"/>
-      <g stroke="#df5b35" stroke-width="5">
-        <path d="M151 476L169 188L192 472M162 320L134 357M181 278L207 317"/>
-        <path d="M245 449L263 153L288 441M255 298L226 338M278 244L309 286"/>
-        <path d="M373 420L390 137L416 407M382 282L350 324M407 229L437 269"/>
-        <path d="M469 376L482 183L504 361M476 279L454 307M496 244L518 271"/>
-      </g>
-      <path d="M292 490C304 432 359 415 346 371C336 337 354 309 386 285" stroke="#17231f" stroke-width="3" stroke-dasharray="4 8"/>
+  <g transform="translate(674 65) scale(.77) rotate(-5 320 320)">
+    <path d="M65 351C126 431 214 471 316 474C431 477 531 424 589 323C523 414 426 458 315 454C207 451 116 412 65 351Z" fill="#17231f" opacity=".12" transform="translate(0 9)"/>
+    <g clip-path="url(#eye)">
+      <image xlink:href="redwood-grove.webp" x="59" y="156" width="526" height="350" preserveAspectRatio="xMidYMid slice"/>
+      <path d="M62 346C117 243 215 182 327 179C431 176 526 228 581 316C524 411 426 461 313 457C203 453 111 414 62 346Z" fill="url(#glass)"/>
     </g>
-    <path d="M92 378C166 178 361 109 548 266C439 494 232 530 92 378Z" fill="none" stroke="#df5b35" stroke-width="3" stroke-dasharray="6 9"/>
-    <circle cx="171" cy="202" r="10" fill="#89918c"/>
-    <circle cx="472" cy="426" r="10" fill="#b8c6b8" stroke="#17231f" stroke-width="2"/>
-    <circle cx="320" cy="320" r="22" fill="#df5b35"/>
-    <g fill="#17231f" font-family="monospace" font-size="17" letter-spacing="1">
-      <text x="38" y="154">OBSERVE</text>
-      <text x="573" y="316">TEST</text>
-      <text x="166" y="614">SHARE</text>
-    </g>
+    <path d="M62 346C117 243 215 182 327 179C431 176 526 228 581 316C524 411 426 461 313 457C203 453 111 414 62 346Z" fill="none" stroke="#17231f" stroke-width="2.5"/>
+    <path d="M68 342C151 216 267 175 371 190C456 202 528 250 579 315" fill="none" stroke="#df5b35" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M151 288C203 227 278 208 345 215" fill="none" stroke="#fff" stroke-opacity=".82" stroke-width="12" stroke-linecap="round"/>
   </g>
 </svg>

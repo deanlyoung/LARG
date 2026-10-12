@@ -18,10 +18,9 @@ if (window.location.hash) {
 
 const deck = document.querySelector('.inquiry-deck');
 if (deck && Array.isArray(window.FIELD_NOTES) && window.FIELD_NOTES.length) {
-  const cards = [...deck.querySelectorAll('[data-card]')];
+  let cards = [...deck.querySelectorAll('[data-card]')];
   const notes = window.FIELD_NOTES;
   const toggle = deck.querySelector('[data-deck-action="toggle"]');
-  const counter = deck.querySelector('.deck-counter');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let active = 0;
   let timer;
@@ -49,7 +48,14 @@ if (deck && Array.isArray(window.FIELD_NOTES) && window.FIELD_NOTES.length) {
 
   const renderDeck = () => {
     cards.forEach((card, position) => fillCard(card, (active + position) % notes.length, position));
-    counter.value = `${formatNumber(active + 1)} / ${notes.length}`;
+  };
+
+  const demoteCard = (card) => {
+    card.dataset.position = 'back';
+    card.setAttribute('aria-hidden', 'true');
+    card.tabIndex = -1;
+    card.removeAttribute('role');
+    card.removeAttribute('aria-label');
   };
 
   const schedule = () => {
@@ -57,19 +63,52 @@ if (deck && Array.isArray(window.FIELD_NOTES) && window.FIELD_NOTES.length) {
     if (!paused) timer = window.setTimeout(() => moveTo((active + 1) % notes.length), 6500);
   };
 
-  const moveTo = (nextIndex) => {
+  const finishMove = (nextIndex) => {
+    active = (nextIndex + notes.length) % notes.length;
+    cards.forEach((card) => card.classList.remove('is-shuffling', 'is-returning', 'is-pulling'));
+    renderDeck();
+    moving = false;
+    schedule();
+  };
+
+  const drawNext = () => {
+    if (moving) return;
+    moving = true;
+    window.clearTimeout(timer);
+    const outgoing = cards[0];
+    const incoming = cards[1];
+    const nextIndex = (active + 1) % notes.length;
+    demoteCard(outgoing);
+    outgoing.classList.add('is-shuffling');
+    fillCard(incoming, nextIndex, 0);
+    window.setTimeout(() => {
+      cards = [incoming, cards[2], outgoing];
+      finishMove(nextIndex);
+    }, 900);
+  };
+
+  const pullFromDeck = (nextIndex) => {
+    nextIndex = (nextIndex + notes.length) % notes.length;
     if (moving || nextIndex === active) return;
     moving = true;
     window.clearTimeout(timer);
     const outgoing = cards[0];
-    outgoing.classList.add('is-shuffling');
+    const pulled = cards[2];
+    demoteCard(outgoing);
+    fillCard(pulled, nextIndex, 0);
+    void pulled.offsetWidth;
+    outgoing.classList.add('is-returning');
+    pulled.classList.add('is-pulling');
     window.setTimeout(() => {
-      outgoing.classList.remove('is-shuffling');
-      active = (nextIndex + notes.length) % notes.length;
-      renderDeck();
-      moving = false;
-      schedule();
-    }, 900);
+      cards = [pulled, cards[1], outgoing];
+      finishMove(nextIndex);
+    }, 850);
+  };
+
+  const moveTo = (nextIndex) => {
+    const normalized = (nextIndex + notes.length) % notes.length;
+    if (normalized === (active + 1) % notes.length) drawNext();
+    else pullFromDeck(normalized);
   };
 
   const setPaused = (value) => {
@@ -89,11 +128,16 @@ if (deck && Array.isArray(window.FIELD_NOTES) && window.FIELD_NOTES.length) {
     moveTo(randomIndex);
   });
 
-  cards[0].addEventListener('click', () => moveTo(active + 1));
-  cards[0].addEventListener('keydown', (event) => {
+  deck.addEventListener('click', (event) => {
+    const card = event.target.closest('[data-card]');
+    if (card?.dataset.position === '0') drawNext();
+  });
+  deck.addEventListener('keydown', (event) => {
+    const card = event.target.closest('[data-card]');
+    if (card?.dataset.position !== '0') return;
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
-      moveTo(active + 1);
+      drawNext();
     }
   });
 
