@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630"><rect width="1200" height="630" fill="#f2f0e8"/><g fill="none" stroke="#17231f" opacity=".25"><circle cx="930" cy="315" r="210"/><circle cx="930" cy="315" r="120"/><path d="M700 360c85-207 291-221 454-68-119 217-326 205-454 68z" stroke="#df5b35" stroke-dasharray="5 8"/></g><circle cx="930" cy="315" r="24" fill="#df5b35"/><text x="80" y="140" fill="#17231f" font-family="Georgia,serif" font-size="32">LOWELL APPLIED</text><text x="80" y="180" fill="#17231f" font-family="Georgia,serif" font-size="32">RESEARCH GROUP</text><text x="80" y="380" fill="#17231f" font-family="Georgia,serif" font-size="82">Questions worth</text><text x="80" y="465" fill="#df5b35" font-family="Georgia,serif" font-size="82" font-style="italic">staying with.</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f2f0e8"/>
+  <text x="76" y="112" fill="#17231f" font-family="Arial,sans-serif" font-size="24" font-weight="600" letter-spacing="2">LOWELL APPLIED RESEARCH GROUP</text>
+  <text x="76" y="348" fill="#17231f" font-family="Georgia,serif" font-size="82">Questions worth</text>
+  <text x="76" y="438" fill="#df5b35" font-family="Georgia,serif" font-size="82" font-style="italic">staying with.</text>
+  <path d="M720 315C815 157 1059 157 1154 315C1059 473 815 473 720 315Z" fill="#17231f"/>
+  <path d="M755 315C834 199 1040 199 1119 315C1040 431 834 431 755 315Z" fill="#f2f0e8"/>
+  <circle cx="937" cy="315" r="78" fill="#b8c6b8"/>
+  <circle cx="937" cy="315" r="42" fill="#df5b35"/>
+  <circle cx="960" cy="292" r="13" fill="#f2f0e8"/>
+</svg>
