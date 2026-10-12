@@ -1,11 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#f2f0e8"/>
-  <text x="76" y="112" fill="#17231f" font-family="Arial,sans-serif" font-size="24" font-weight="600" letter-spacing="2">LOWELL APPLIED RESEARCH GROUP</text>
-  <text x="76" y="348" fill="#17231f" font-family="Georgia,serif" font-size="82">Questions worth</text>
-  <text x="76" y="438" fill="#df5b35" font-family="Georgia,serif" font-size="82" font-style="italic">staying with.</text>
-  <path d="M720 315C815 157 1059 157 1154 315C1059 473 815 473 720 315Z" fill="#17231f"/>
-  <path d="M755 315C834 199 1040 199 1119 315C1040 431 834 431 755 315Z" fill="#f2f0e8"/>
-  <circle cx="937" cy="315" r="78" fill="#b8c6b8"/>
-  <circle cx="937" cy="315" r="42" fill="#df5b35"/>
-  <circle cx="960" cy="292" r="13" fill="#f2f0e8"/>
+  <text x="54" y="172" fill="#17231f" font-family="Georgia,serif" font-size="88" letter-spacing="-4">Questions worth</text>
+  <text x="54" y="258" fill="#df5b35" font-family="Georgia,serif" font-size="88" font-style="italic" letter-spacing="-3">staying with.</text>
+  <text x="56" y="342" fill="#17231f" font-family="Arial,sans-serif" font-size="25">Lowell Applied Research Group is a home for careful</text>
+  <text x="56" y="381" fill="#17231f" font-family="Arial,sans-serif" font-size="25">inquiry, useful experiments, and clear communication.</text>
+  <g transform="translate(664 64) scale(.76)">
+    <circle cx="320" cy="320" r="218" fill="none" stroke="#17231f" stroke-opacity=".16" stroke-width="2" stroke-dasharray="3 9"/>
+    <circle cx="320" cy="320" r="132" fill="none" stroke="#17231f" stroke-width="2" stroke-dasharray="1 7"/>
+    <path d="M92 378C166 178 361 109 548 266C439 494 232 530 92 378Z" fill="none" stroke="#df5b35" stroke-width="3" stroke-dasharray="6 9"/>
+    <line x1="320" y1="52" x2="320" y2="588" stroke="#17231f" stroke-opacity=".2" stroke-width="2"/>
+    <line x1="52" y1="320" x2="588" y2="320" stroke="#17231f" stroke-opacity=".2" stroke-width="2"/>
+    <circle cx="171" cy="202" r="10" fill="#89918c"/>
+    <circle cx="472" cy="426" r="10" fill="#b8c6b8" stroke="#17231f" stroke-width="2"/>
+    <circle cx="320" cy="320" r="22" fill="#df5b35"/>
+    <g fill="#17231f" font-family="monospace" font-size="17" letter-spacing="1">
+      <text x="38" y="154">OBSERVE</text>
+      <text x="573" y="316">TEST</text>
+      <text x="166" y="614">SHARE</text>
+    </g>
+  </g>
 </svg>
