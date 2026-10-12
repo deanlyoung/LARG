@@ -10,6 +10,73 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 document.getElementById('year').textContent = new Date().getFullYear();
 
+const feedbackLoop = document.querySelector('[data-feedback-loop]');
+if (feedbackLoop) {
+  const stages = [...feedbackLoop.querySelectorAll('[data-feedback-stage]')];
+  const panels = [...feedbackLoop.querySelectorAll('[data-feedback-panel]')];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let activeStage = 0;
+  let cycleTimer;
+  let pointerInside = false;
+
+  const isKeyboardActive = () => feedbackLoop.contains(document.activeElement);
+  const setPausedState = () => {
+    feedbackLoop.dataset.paused = String(pointerInside || isKeyboardActive() || reduceMotion);
+  };
+
+  const showStage = (index) => {
+    activeStage = (index + stages.length) % stages.length;
+    stages.forEach((stage, stageIndex) => stage.setAttribute('aria-pressed', String(stageIndex === activeStage)));
+    panels.forEach((panel, panelIndex) => {
+      const isActive = panelIndex === activeStage;
+      panel.classList.toggle('is-active', isActive);
+      panel.setAttribute('aria-hidden', String(!isActive));
+    });
+  };
+
+  const scheduleCycle = () => {
+    window.clearTimeout(cycleTimer);
+    setPausedState();
+    if (!reduceMotion && !pointerInside && !isKeyboardActive()) {
+      cycleTimer = window.setTimeout(() => {
+        showStage(activeStage + 1);
+        scheduleCycle();
+      }, 4000);
+    }
+  };
+
+  stages.forEach((stage, index) => {
+    stage.addEventListener('pointerenter', () => showStage(index));
+    stage.addEventListener('focus', () => showStage(index));
+    stage.addEventListener('click', () => showStage(index));
+  });
+  feedbackLoop.addEventListener('pointerenter', () => {
+    pointerInside = true;
+    window.clearTimeout(cycleTimer);
+    setPausedState();
+  });
+  feedbackLoop.addEventListener('pointerleave', () => {
+    pointerInside = false;
+    scheduleCycle();
+  });
+  feedbackLoop.addEventListener('focusin', () => {
+    window.clearTimeout(cycleTimer);
+    setPausedState();
+  });
+  feedbackLoop.addEventListener('focusout', (event) => {
+    if (!feedbackLoop.contains(event.relatedTarget)) window.setTimeout(scheduleCycle, 0);
+  });
+
+  if (reduceMotion) {
+    stages.forEach((stage) => stage.setAttribute('aria-pressed', 'false'));
+    panels.forEach((panel) => panel.setAttribute('aria-hidden', 'false'));
+    feedbackLoop.dataset.paused = 'true';
+  } else {
+    showStage(0);
+    scheduleCycle();
+  }
+}
+
 if (window.location.hash) {
   const settleAnchor = () => document.querySelector(window.location.hash)?.scrollIntoView();
   window.addEventListener('load', settleAnchor, { once: true });
