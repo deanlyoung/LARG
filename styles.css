@@ -93,25 +93,24 @@ h1 em { color: var(--signal); font-weight: 400; }
   will-change: transform;
   animation: forest-eye-zoom 18s linear infinite alternate;
 }
-.forest-eye-art > picture, .forest-eye-art img { display: block; width: 100%; height: 100%; }
-.forest-eye-art img { object-fit: cover; }
+.forest-eye-art > img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .eye-glass { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; mix-blend-mode: screen; pointer-events: none; animation: glass-focus 18s linear infinite alternate; }
 .eye-glass .glass-wash { fill: url(#cornea-wash); }
 .eye-glass .glass-arc { fill: none; stroke: rgba(255,255,255,.78); stroke-width: 13; stroke-linecap: round; filter: blur(.6px); }
 .eye-glass .glass-flare { fill: url(#cornea-flare); filter: blur(2px); }
 .eye-glass .glass-glint { fill: rgba(255,255,255,.82); filter: blur(.4px); }
 @keyframes forest-eye-zoom {
-  0%, 8% { transform: scale(16); }
-  16% { transform: scale(12.9); }
-  24% { transform: scale(10.4); }
-  32% { transform: scale(8.4); }
-  40% { transform: scale(6.7); }
-  48% { transform: scale(5.4); }
-  56% { transform: scale(4.3); }
-  64% { transform: scale(3.4); }
-  72% { transform: scale(2.65); }
-  80% { transform: scale(1.95); }
-  88% { transform: scale(1.38); }
+  0%, 12% { transform: scale(20); }
+  20% { transform: scale(15.6); }
+  28% { transform: scale(12.2); }
+  36% { transform: scale(9.5); }
+  44% { transform: scale(7.4); }
+  52% { transform: scale(5.8); }
+  60% { transform: scale(4.5); }
+  68% { transform: scale(3.5); }
+  76% { transform: scale(2.7); }
+  84% { transform: scale(2); }
+  90% { transform: scale(1.45); }
   94%, 100% { transform: scale(1); }
 }
 @keyframes glass-focus {
