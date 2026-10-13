@@ -17,7 +17,7 @@
   <meta name="twitter:image" content="https://lowellappliedresearch.group/assets/og-image.png">
   <title>Lowell Applied Research Group</title>
   <link rel="canonical" href="https://lowellappliedresearch.group/">
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="styles.css">
@@ -57,53 +57,32 @@
       </div>
 
       <div class="field" aria-hidden="true">
-        <svg viewBox="0 0 640 640" role="img">
-          <defs>
-            <clipPath id="glass-eye-clip">
-              <path d="M62 346C117 243 215 182 327 179C431 176 526 228 581 316C524 411 426 461 313 457C203 453 111 414 62 346Z" />
-            </clipPath>
-            <clipPath id="iris-reflection-clip">
-              <ellipse cx="322" cy="321" rx="83" ry="78"/>
-            </clipPath>
-            <linearGradient id="glass-wash" x1=".18" y1=".08" x2=".82" y2=".92">
-              <stop offset="0" stop-color="#fff" stop-opacity=".58"/>
-              <stop offset=".46" stop-color="#dfe8df" stop-opacity=".08"/>
-              <stop offset="1" stop-color="#789083" stop-opacity=".28"/>
-            </linearGradient>
-            <radialGradient id="forest-fade">
-              <stop offset="64%" stop-color="white"/>
-              <stop offset="100%" stop-color="black"/>
-            </radialGradient>
-            <mask id="forest-vignette">
-              <rect width="640" height="640" fill="url(#forest-fade)"/>
-            </mask>
-          </defs>
-          <g class="forest-journey">
-            <image href="/assets/redwood-grove.svg" x="20" y="100" width="600" height="400" preserveAspectRatio="xMidYMid meet" mask="url(#forest-vignette)" />
-          </g>
-          <g class="eye-form">
-            <path class="eye-shadow" d="M65 351C126 431 214 471 316 474C431 477 531 424 589 323C523 414 426 458 315 454C207 451 116 412 65 351Z"/>
-            <path class="eye-rim" d="M62 346C117 243 215 182 327 179C431 176 526 228 581 316C524 411 426 461 313 457C203 453 111 414 62 346Z" />
-            <path class="eye-lid" d="M68 342C151 216 267 175 371 190C456 202 528 250 579 315" />
-          </g>
-          <g class="iris-reflection">
-            <g clip-path="url(#iris-reflection-clip)">
-              <image href="/assets/redwood-grove.svg" x="59" y="146" width="526" height="370" preserveAspectRatio="xMidYMid slice" />
-              <ellipse class="iris-wash" cx="322" cy="321" rx="83" ry="78"/>
-            </g>
-            <ellipse class="iris-ring" cx="322" cy="321" rx="83" ry="78"/>
-          </g>
-          <g class="full-eye-reflection">
-            <g clip-path="url(#glass-eye-clip)">
-              <image class="eye-forest" href="/assets/redwood-grove.svg" x="59" y="146" width="526" height="370" preserveAspectRatio="xMidYMid slice" />
-              <path class="glass-wash" d="M62 346C117 243 215 182 327 179C431 176 526 228 581 316C524 411 426 461 313 457C203 453 111 414 62 346Z"/>
-            </g>
-          </g>
-          <g class="eye-sheen">
-            <path class="eye-highlight" d="M151 288C203 227 278 208 345 215" />
-            <path class="eye-glint" d="M183 269C205 245 230 232 257 224" />
-          </g>
-        </svg>
+        <div class="forest-eye-camera">
+          <div class="forest-eye-art">
+            <picture>
+              <source media="(max-width: 760px)" srcset="/assets/forest-eye-deep-4096.webp">
+              <img src="/assets/forest-eye-deep-master.webp" alt="" width="8192" height="8192" decoding="async" fetchpriority="high">
+            </picture>
+            <svg class="eye-glass" viewBox="0 0 640 640" aria-hidden="true">
+              <defs>
+                <radialGradient id="cornea-wash" cx="38%" cy="31%" r="67%">
+                  <stop offset="0" stop-color="#fff" stop-opacity=".28"/>
+                  <stop offset=".5" stop-color="#dce7df" stop-opacity=".07"/>
+                  <stop offset="1" stop-color="#49685b" stop-opacity=".17"/>
+                </radialGradient>
+                <linearGradient id="cornea-flare" x1=".15" y1=".08" x2=".72" y2=".78">
+                  <stop offset="0" stop-color="#fff" stop-opacity=".82"/>
+                  <stop offset=".45" stop-color="#fff" stop-opacity=".12"/>
+                  <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <circle class="glass-wash" cx="320" cy="320" r="66"/>
+              <path class="glass-arc" d="M274 304C291 278 322 266 350 273C365 277 376 284 386 295"/>
+              <ellipse class="glass-flare" cx="296" cy="292" rx="27" ry="10" transform="rotate(-24 296 292)"/>
+              <circle class="glass-glint" cx="354" cy="302" r="4"/>
+            </svg>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -144,7 +123,7 @@
             <p>Share the reasoning, limits, and practical implications so the work can travel beyond the place it began.</p>
           </div>
           <figure class="approach-illustration illustration-trail" aria-label="A winding trail leads through a grove of orange-trunked redwoods">
-            <img src="/assets/redwood-grove.svg" alt="" width="1200" height="800">
+            <img src="/assets/redwood-grove-final.webp" alt="" width="1254" height="800" loading="lazy" decoding="async">
           </figure>
         </li>
       </ol>

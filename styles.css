@@ -83,50 +83,42 @@ h1 em { color: var(--signal); font-weight: 400; }
 .text-link span { color: var(--signal); font-size: 1rem; transition: transform .2s ease; }
 .text-link:hover span { transform: translateY(3px); }
 
-.field { position: relative; width: min(100%, 610px); justify-self: end; }
-.field svg { display: block; width: 100%; overflow: hidden; }
+.field { position: relative; width: min(100%, 610px); aspect-ratio: 1; justify-self: end; overflow: hidden; }
 @keyframes breathe { 50% { r: 13px; opacity: .45; } }
-.forest-journey { transform-origin: 320px 330px; animation: forest-camera 16s cubic-bezier(.42,0,.2,1) infinite alternate; }
-.forest-journey image { opacity: .96; }
-.eye-form, .iris-reflection, .full-eye-reflection, .eye-sheen { transform-origin: 322px 321px; opacity: 0; }
-.eye-form { animation: eye-form-arrives 16s ease-in-out infinite alternate; }
-.iris-reflection { animation: iris-arrives 16s cubic-bezier(.3,.7,.25,1) infinite alternate; }
-.full-eye-reflection { animation: reflection-expands 16s cubic-bezier(.3,.7,.25,1) infinite alternate; }
-.eye-sheen { animation: sheen-arrives 16s ease-in-out infinite alternate; }
-.eye-shadow { fill: rgba(23, 35, 31, .12); transform: translateY(9px); }
-.glass-wash { fill: url(#glass-wash); }
-.eye-rim, .eye-lid, .eye-highlight, .eye-glint, .iris-ring { fill: none; stroke-linecap: round; }
-.eye-rim { stroke: var(--ink); stroke-width: 2.2; }
-.eye-lid { stroke: var(--signal); stroke-width: 2; opacity: .8; }
-.eye-highlight { stroke: rgba(255,255,255,.82); stroke-width: 12; opacity: .75; }
-.eye-glint { stroke: rgba(255,255,255,.95); stroke-width: 3.5; }
-.iris-wash { fill: rgba(184,198,184,.22); }
-.iris-ring { stroke: rgba(23,35,31,.5); stroke-width: 2; }
-.eye-forest { filter: saturate(.75) contrast(.92); }
-@keyframes forest-camera {
-  0%, 10% { transform: scale(8); opacity: 1; }
-  61%, 69% { transform: scale(1); opacity: 1; }
-  80% { transform: scale(.3); opacity: .72; }
-  86%, 100% { transform: scale(.26); opacity: 0; }
+.forest-eye-camera { position: absolute; inset: 0; overflow: hidden; }
+.forest-eye-art {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 50%;
+  will-change: transform;
+  animation: forest-eye-zoom 18s linear infinite alternate;
 }
-@keyframes eye-form-arrives {
-  0%, 69% { opacity: 0; transform: rotate(-5deg) scale(1); }
-  79% { opacity: .66; transform: rotate(-5deg) scale(1); }
-  92%, 100% { opacity: 1; transform: rotate(-5deg) scale(1); }
+.forest-eye-art > picture, .forest-eye-art img { display: block; width: 100%; height: 100%; }
+.forest-eye-art img { object-fit: cover; }
+.eye-glass { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; mix-blend-mode: screen; pointer-events: none; animation: glass-focus 18s linear infinite alternate; }
+.eye-glass .glass-wash { fill: url(#cornea-wash); }
+.eye-glass .glass-arc { fill: none; stroke: rgba(255,255,255,.78); stroke-width: 13; stroke-linecap: round; filter: blur(.6px); }
+.eye-glass .glass-flare { fill: url(#cornea-flare); filter: blur(2px); }
+.eye-glass .glass-glint { fill: rgba(255,255,255,.82); filter: blur(.4px); }
+@keyframes forest-eye-zoom {
+  0%, 8% { transform: scale(16); }
+  16% { transform: scale(12.9); }
+  24% { transform: scale(10.4); }
+  32% { transform: scale(8.4); }
+  40% { transform: scale(6.7); }
+  48% { transform: scale(5.4); }
+  56% { transform: scale(4.3); }
+  64% { transform: scale(3.4); }
+  72% { transform: scale(2.65); }
+  80% { transform: scale(1.95); }
+  88% { transform: scale(1.38); }
+  94%, 100% { transform: scale(1); }
 }
-@keyframes iris-arrives {
-  0%, 70% { opacity: 0; transform: rotate(-5deg) scale(.94); }
-  79%, 86% { opacity: 1; transform: rotate(-5deg) scale(1); }
-  96%, 100% { opacity: 0; transform: rotate(-5deg) scale(1); }
-}
-@keyframes reflection-expands {
-  0%, 82% { opacity: 0; transform: rotate(-5deg) scale(1); }
-  89% { opacity: .58; transform: rotate(-5deg) scale(1); }
-  94%, 100% { opacity: 1; transform: rotate(-5deg) scale(1); }
-}
-@keyframes sheen-arrives {
-  0%, 86% { opacity: 0; transform: rotate(-5deg) scale(1); }
-  95%, 100% { opacity: 1; transform: rotate(-5deg) scale(1); }
+@keyframes glass-focus {
+  0%, 72% { opacity: 0; }
+  80% { opacity: .08; }
+  88% { opacity: .28; }
+  94%, 100% { opacity: .32; }
 }
 
 .statement { background: var(--ink); color: var(--paper); padding: 14vh max(4vw, calc((100vw - 1325px)/2)); }
@@ -147,7 +139,7 @@ h3 { font: 400 clamp(1.7rem, 2.4vw, 2.35rem)/1.1 var(--serif); }
 .illustration-frame img { width: 112%; max-width: none; }
 .illustration-evidence img { width: 108%; max-width: none; }
 .illustration-trail { position: relative; height: 280px; }
-.illustration-trail img { width: 100%; max-width: none; object-fit: contain; object-position: center bottom; filter: saturate(.78) contrast(.96); }
+.illustration-trail img { width: 100%; max-width: none; object-fit: cover; object-position: center bottom; filter: saturate(.78) contrast(.96); }
 .approach-illustration svg { display: block; width: 100%; overflow: visible; }
 .approach-illustration path, .approach-illustration ellipse, .approach-illustration circle { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .approach-illustration .land, .approach-illustration .tree-ring { stroke: var(--sage); }
@@ -285,8 +277,8 @@ footer p { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-  .forest-journey, .iris-reflection { display: none; }
-  .eye-form, .full-eye-reflection, .eye-sheen { opacity: 1; transform: rotate(-5deg); }
+  .forest-eye-art { animation: none; transform: scale(1); }
+  .eye-glass { animation: none; opacity: .32; }
   .feedback-loop { aspect-ratio: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
   .loop-drawing, .loop-caption { display: none; }
   .loop-node { position: relative; inset: auto; justify-self: center; }
